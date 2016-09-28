@@ -1,0 +1,12 @@
+{
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "server.js",
+  "name": "fileparser",
+  "author": "Bruno Duarte Brito",
+  "description": "A simple file parser using nodejs",
+  "dependencies": {
+    "pdf2json": "^1.1.7",
+    "xlsx": "^0.8.0"
+  }
+}
