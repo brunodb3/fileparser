@@ -49,9 +49,12 @@ function parsePdf(filename) {
 
     // Success event
     pdfParser.on('pdfParser_dataReady', function (pdfData) {
+        // Output file as JSON
+        var outputJson = JSON.stringify(pdfData.formImage.Pages[0].Texts, null, 2);
+
         // Check if user wants to write into a JSON file
         if (args[1]) {
-            Utils.writeToJson(baseName, JSON.stringify(pdfData.formImage.Pages[0].Texts, null, 2));
+            Utils.writeToJson(baseName, outputJson);
         } else {
             console.log(outputJson);
         }
@@ -71,9 +74,12 @@ function parseExcel(filename) {
     // Worksheet from file
     var worksheet = workbook.Sheets[firstSheet];
 
+    // Output file as JSON
+    var outputJson = JSON.stringify(XLSX.utils.sheet_to_row_object_array(worksheet), null, 2);
+
     // Check if user wants to write into a JSON file
     if (args[1]) {
-        Utils.writeToJson(baseName, JSON.stringify(XLSX.utils.sheet_to_row_object_array(worksheet), null, 2));
+        Utils.writeToJson(baseName, outputJson);
     } else {
         console.log(outputJson);
     }
