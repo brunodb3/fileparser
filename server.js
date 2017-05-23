@@ -7,8 +7,6 @@ var XLSX = require('xlsx'),
     path = require('path'),
     PDFParser = require('pdf2json');
 
-// var pdfExtract = require('pdf-extract');
-
 Utils = require('./utils');
 
 // Arguments passed on the command line
@@ -39,7 +37,6 @@ switch (fileExtension) {
 // Functions
 // Parses any pdf file
 function parsePdf(filename) {
-    // console.log('PDF');
     var pdfParser = new PDFParser();
 
     // Error event
@@ -50,7 +47,7 @@ function parsePdf(filename) {
     // Success event
     pdfParser.on('pdfParser_dataReady', function (pdfData) {
         // Output file as JSON
-        var outputJson = JSON.stringify(pdfData.formImage.Pages[0].Texts, null, 2);
+        var outputJson = Utils.removeDiacritics(JSON.stringify(pdfData.formImage.Pages[0].Texts, null, 2));
 
         // Check if user wants to write into a JSON file
         if (args[1]) {
@@ -61,13 +58,13 @@ function parsePdf(filename) {
     });
 
     // Loads the PDF file into the parser
-    pdfParser.loadPDF(filename);
+    pdfParser.loadPDF("./input_files/" + filename);
 }
 
 // Parses any excel file
 function parseExcel(filename) {
     // Reading the file
-    var workbook = XLSX.readFile(filename);
+    var workbook = XLSX.readFile("./input_files/" + filename);
 
     // Excel file
     var firstSheet = workbook.SheetNames[0];
@@ -75,7 +72,7 @@ function parseExcel(filename) {
     var worksheet = workbook.Sheets[firstSheet];
 
     // Output file as JSON
-    var outputJson = JSON.stringify(XLSX.utils.sheet_to_row_object_array(worksheet), null, 2);
+    var outputJson = Utils.removeDiacritics(JSON.stringify(XLSX.utils.sheet_to_row_object_array(worksheet), null, 2));
 
     // Check if user wants to write into a JSON file
     if (args[1]) {

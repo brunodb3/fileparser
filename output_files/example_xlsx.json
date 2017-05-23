@@ -1,0 +1,37 @@
+[
+  {
+    "COL1": "VAL1.1",
+    "COL2": "VAL1.2",
+    "COL3": "VAL1.3",
+    "COL4": "VAL1.4",
+    "COL5": "VAL1.5"
+  },
+  {
+    "COL1": "VAL2.1",
+    "COL2": "VAL2.2",
+    "COL3": "VAL2.3",
+    "COL4": "VAL2.4",
+    "COL5": "VAL2.5"
+  },
+  {
+    "COL1": "VAL3.1",
+    "COL2": "VAL3.2",
+    "COL3": "VAL3.3",
+    "COL4": "VAL3.4",
+    "COL5": "VAL3.5"
+  },
+  {
+    "COL1": "VAL4.1",
+    "COL2": "VAL4.2",
+    "COL3": "VAL4.3",
+    "COL4": "VAL4.4",
+    "COL5": "VAL4.5"
+  },
+  {
+    "COL1": "VAL5.1",
+    "COL2": "VAL5.2",
+    "COL3": "VAL5.3",
+    "COL4": "VAL5.4",
+    "COL5": "VAL5.5"
+  }
+]
